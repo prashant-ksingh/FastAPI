@@ -22,17 +22,22 @@ why fastapi id fat to run
 
 web Server ------------------------------->  SGI -------------------------------> API Code
 
-POST /predict HTTP/1.1               Request.method-->"POST"                      "preediction": 8.3
-Host: api.example.com                Request.url--> "/predict"
-Content-Type: application/json       Request.json()--> {"feature1": 5.2, 
-Content-Length: 45                                       "feature2":3.1 }
+POST /predict HTTP/1.1                                     
+Host: api.example.com                
+Content-Type: application/json        
+Content-Length: 45                                       
 
 {
     "feature": 5.2,
     "feature": 3.1
 }
 
+Request.method-->"POST"
+Request.url--> "/predict"
+Request.json()--> {"feature1": 5.2,"feature2":3.1 }
 
+
+"preediction": 8.3
 
 
 HTTP/1.1 200 OK
