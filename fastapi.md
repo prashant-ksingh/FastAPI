@@ -20,6 +20,8 @@ Philosophy of FastAPI
 
 why fastapi id fat to run 
 
+Working of an api
+
 web Server ------------------------------->  SGI -------------------------------> API Code
 
 POST /predict HTTP/1.1                                     
@@ -32,18 +34,47 @@ Content-Length: 45
     "feature": 3.1
 }
 
+SGI(Server Gateway Interface) --> Establishes two way communication
+- Converts the request data to below format
+
 Request.method-->"POST"
 Request.url--> "/predict"
 Request.json()--> {"feature1": 5.2,"feature2":3.1 }
 
 
-"preediction": 8.3
+- Now the API code genrates the output
 
+"prediction": 8.3
+
+-  SGI angain changes to the data into request body
 
 HTTP/1.1 200 OK
 Content-Type application/json
 {
     "prediction":8.3
 }
+
+
+## API Working in flask
+
+
+Web Server(Gunicorn)  ----> SGI (WSGI->Werkzueg) ----> API Code(Sumchronous Endpoint)
+
+@app.route("/predict", methods=["POST"])
+def predict():
+    json_data = request.get_json()
+    data = InputData(** json_data)
+    result = predict_sync(data)
+    return jsonify(result)
+
+
+-- WSGI--> this is of synchromous nature and blocking architechure, can lead to slower request
+
+
+## API working in fastApi
+
+
+15:47
+
 
 
