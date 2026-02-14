@@ -134,9 +134,22 @@ create a file main.py and write a hello world code in it
     def hello():
         return{ 'message':"Hello World !!"}
 
-trun you program using uvicorn (relaod will reaload your code with every change)
+run you program using uvicorn (relaod will reaload your code with every change)
 
     uvicorn main:app --reload
+
+To Acess api endpoints open the below in you browser
+
+    http://127.0.0.1:8000/
+    http://127.0.0.1:8000/about
+
+To acress auto genrated docs by Fast API
+
+    http://127.0.0.1:8000/docs
+
+    can interact with docs using "Try it out" button then click "Execute" button
+
+
 
 
 
