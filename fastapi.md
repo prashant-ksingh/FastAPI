@@ -107,6 +107,9 @@ Web Server(Uvicorn)  ----> SGI (ASGI->Starlette) ----> API Code(Asynchronous End
 3- Seamless integration with mordern Ecosystem(ML/DL libraries, OAuth, jwt, SQL Alchemy, Docker, Kuberntes etc.)
 
 # Installing FastAPI
+check if python is available
+
+    python --version
 
 create a virtual envirnment 
 
@@ -120,6 +123,21 @@ Activate the envirnment
 install Dependencies and fast api
 
     pip install fastapi uvicorn pydentic
+
+create a file main.py and write a hello world code in it 
+
+    from fastapi import FastAPI
+
+    app = FastAPI()
+
+    @app.get("/")
+    def hello():
+        return{ 'message':"Hello World !!"}
+
+trun you program using uvicorn (relaod will reaload your code with every change)
+
+    uvicorn main:app --reload
+
 
 
 
