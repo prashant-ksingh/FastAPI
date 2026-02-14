@@ -1,6 +1,8 @@
-Fast API
-- FastApi is a mordern, heigh-performance web framework for building APIs with python.
-- made up using two python libraries Starlette and Pydentic.
+# Fast API
+L-2
+#### - FastApi is a mordern, heigh-performance web framework for building APIs with python.
+
+#### - made up using two python libraries Starlette and Pydentic.
 
 Starlette
 - Starlette manages how your API recives requests and sends back response.
@@ -20,7 +22,7 @@ Philosophy of FastAPI
 
 why fastapi id fat to run 
 
-Working of an api
+## Working of an API
 
 web Server ------------------------------->  SGI -------------------------------> API Code
 
@@ -29,17 +31,17 @@ Host: api.example.com
 Content-Type: application/json        
 Content-Length: 45                                       
 
-{
-    "feature": 5.2,
-    "feature": 3.1
-}
+    {
+        "feature": 5.2,
+        "feature": 3.1
+    }
 
 SGI(Server Gateway Interface) --> Establishes two way communication
 - Converts the request data to below format
 
-Request.method-->"POST"
-Request.url--> "/predict"
-Request.json()--> {"feature1": 5.2,"feature2":3.1 }
+    Request.method-->"POST"
+    Request.url--> "/predict"
+    Request.json()--> {"feature1": 5.2,"feature2":3.1 }
 
 
 - Now the API code genrates the output
@@ -48,33 +50,77 @@ Request.json()--> {"feature1": 5.2,"feature2":3.1 }
 
 -  SGI angain changes to the data into request body
 
-HTTP/1.1 200 OK
-Content-Type application/json
-{
-    "prediction":8.3
-}
+    HTTP/1.1 200 OK
+    Content-Type application/json
+    {
+        "prediction":8.3
+    }
 
+### WSGI - -- a specification that standardizes hoe web server and python applications frameworks communicate  (WSGI & ASGI)
 
 ## API Working in flask
 
 
-Web Server(Gunicorn)  ----> SGI (WSGI->Werkzueg) ----> API Code(Sumchronous Endpoint)
+Web Server(Gunicorn)  ----> SGI (WSGI->Werkzueg) ----> API Code(Sunchronous Endpoint)
 
-@app.route("/predict", methods=["POST"])
-def predict():
-    json_data = request.get_json()
-    data = InputData(** json_data)
-    result = predict_sync(data)
-    return jsonify(result)
+code is also synchronous
+
+    @app.route("/predict", methods=["POST"])
+    def predict():
+        json_data = request.get_json()
+        data = InputData(** json_data)
+        result = predict_sync(data)
+        return jsonify(result)
 
 
--- WSGI--> this is of synchromous nature and blocking architechure, can lead to slower request
+-- WSGI--> this is of synchronous nature and blocking architechure, can lead to slower request
+
+
+### ASGI - is a newer, Asynchronous interface that's better suited for mordern web applications like those using Websockets or real_time features
 
 
 ## API working in fastApi
 
+Different in three aspacts in comparison to flask
 
-15:47
+1- Async server gateway
+
+2- library is Starleete 
+
+3- Uvicorn web server is used
+
+the code is also writen in asynchronous way
+
+Web Server(Uvicorn)  ----> SGI (ASGI->Starlette) ----> API Code(Asynchronous Endpoint)
+
+    @app.post("/predict")
+    async def predict(data : InputData):
+        result = await predict_async(data)
+        return result
+
+
+### Why Fast API is fast to code?
+1- Automatic input vlidation(varibales are created dynamically in python, makes validation important)
+
+2- Auto-Genrated interactive Document
+
+3- Seamless integration with mordern Ecosystem(ML/DL libraries, OAuth, jwt, SQL Alchemy, Docker, Kuberntes etc.)
+
+# Installing FastAPI
+
+create a virtual envirnment 
+
+    python -m venv venv
+
+Activate the envirnment 
+
+    For windows - venv/Scripts/activate
+    For Mac - source .venv/bin/activate
+
+install Dependencies and fast api
+
+    pip install fastapi uvicorn pydentic
+
 
 
 
