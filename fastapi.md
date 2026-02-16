@@ -149,9 +149,24 @@ To acress auto genrated docs by Fast API
 
     can interact with docs using "Try it out" button then click "Execute" button
 
+L-3
+
+## HTTP Methods
+
+software ---------> static software(e.g. calander)
+
+   |
+   -------->Dynamic software(ms word)
 
 
+(Types of intraction with s/w) ----> CRUD
 
+    SERVER ----------------->CLIENT
 
+           <------------------
+               HTTP Protocol
 
+Types of interaction (HTTP Method) :
+
+     GET  POST PUT PATCH DELETE
 
