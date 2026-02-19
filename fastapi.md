@@ -170,3 +170,36 @@ Types of interaction (HTTP Method) :
 
      GET  POST PUT PATCH DELETE
 
+### HTTP Status code
+
+are 3 digit numbers returned in the response by a web browser server (like FastAPI) to indicate the result of a client's request(like from a browser or API consumer)
+
+They help the client (browser, frontend, mobile app etc.) understand:
+- whether the request was successful.
+- whether something went wrong.
+- and what kind of issue  occurred(if any)
+
+2xx - success - the request was successfully received and processed
+3xx - redirection- Further action needs to be taken
+4xx- Client Error - Something is wrong with the request from the client
+5xx - Server Error - Something went wrong on the server side
+
+can go and check some famous status code to get more understanding
+
+## HTTP Exception
+
+
+HTTPException is a special built-in exception in FASTAPI used to return an custom HTTP error Responses when something goes wrong in your API
+instead of returning a normal JSON or crashing the server, you can gracefully raise an error with:
+a proper HTTP status code(like 404, 403 etc)
+a custom error message
+(optional) extra headers
+
+
+## The path() function
+
+The path() function in FastAPI is used to to provide metadata, validation rule and documentation hints for path parameters in your API endpoints
+
+Title , Description
+Example  ge, gt, le, lt    min_length, max_length, regex
+
