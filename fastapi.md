@@ -203,3 +203,19 @@ The path() function in FastAPI is used to to provide metadata, validation rule a
 Title , Description
 Example  ge, gt, le, lt    min_length, max_length, regex
 
+
+## Query Parameter
+
+Query Parameters are optional key-value pair appended to the end of a URL request. They are typically employed for operations like filtering, sorting, searching and pagination without altering the path itself.
+
+     /patients?city=Delhi&sort_by=age
+
+  - The "?" marks the start of query parameters.
+  - Each parameter is a key-value pair : "key=value"
+  - Multiple parameter are seprated by "&"
+
+In the above case:
+  - "city=Delhi" is a query parameter for filtering
+  - "sort_by=age" is a query parameter for sorting
+
+
